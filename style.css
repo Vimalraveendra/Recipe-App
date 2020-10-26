@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.header-container {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-container input {
+  background-color: #eee;
+  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
+  border: 0;
+  border-bottom: solid 2px #9b344e;
+  padding: 0.4rem 1rem;
+}
+
+.header-container button {
+  background-color: green;
+  padding: 0.37rem 1rem;
+  border-radius: 0.5em;
+}
+#list li {
+  display: flex;
+}
