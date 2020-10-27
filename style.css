@@ -43,7 +43,7 @@ h1{
   background-color: green;
   padding: 0.6rem;
   border-radius: 0.5em;
-
+  cursor: pointer;
   width: 50px;
   border: none;
   color: #fff;
@@ -136,10 +136,40 @@ h1{
   margin: 1rem;
 }
 
-#fav {
+button {
   background-color: transparent;
   border:none
 }
-#fav:focus{
+input,button:focus{
   outline: none;
 }
+
+
+.meal-footer{
+  padding:0.5rem;    
+}
+.meal-footer #see, .meal-footer #add{
+  width: 40%;
+  height: 2.5rem;;  
+  font-size:  1.10  rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.meal-footer #see{
+background-color: #ff8000;
+color:#fff;
+}
+.meal-footer #add{
+ border:1px solid black
+
+  }
+
+  .meal-footer #add:hover,.meal-footer #see:hover{
+   background-color:  #ff9e36;
+   color:#fff
+  }
+ /* button:{ 
+ /* background-color:  #ff9e36; */
+ color:red
+} */
