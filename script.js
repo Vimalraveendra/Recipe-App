@@ -22,6 +22,7 @@ const  getFavMeals=async(e)=>{
 
 
 const addMeals = (meals)=>{
+    
     const meal = document.createElement('div');
     meal.classList.add('meal');
     meal.innerHTML=`
@@ -29,10 +30,14 @@ const addMeals = (meals)=>{
         <span class="meal-title">Random Recipe </span>
         <img src="${meals.strMealThumb}" alt="${meals.strMeal}">
             <div class="meal-body">
-                <h4>${meals.strMeal.length < 20 ? `${meals.strMeal}` : `${meals.strMeal.substring(0, 20)}...`}</h4>
+                <h4>${meals.strMeal.length < 18 ? `${meals.strMeal}` : `${meals.strMeal.substring(0, 18)}...`}</h4>
                 <button id="fav">
                    <i class="far fa-heart"></i>
                 </button>
+            </div>
+            <div class='meal-footer'>
+            <button id='see'>See</button>
+            <button id='add'>Add </button>
             </div>
     </div>
   `
@@ -40,7 +45,7 @@ const addMeals = (meals)=>{
 }
 
 const renderMeals = (mealList)=>{
-
+// clearing the  container before adding 
     mealContainer.innerHTML="";
   mealList.meals.forEach(meal => {
      addMeals(meal)
@@ -53,11 +58,12 @@ const searchMeals= async()=>{
     let  response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${searchInput}`)
     let favMeals = await response.json();
     if(favMeals.meals){
+        // clearing the container if we get proper response with array items
         mealContainer.innerHTML="";
         renderMeals(favMeals )
         
     }
-    searchInput ="";
+  input.value ="";
     
 }
 
