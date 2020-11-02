@@ -165,11 +165,58 @@ color:#fff;
 
   }
 
+
   .meal-footer #add:hover,.meal-footer #see:hover{
    background-color:  #ff9e36;
    color:#fff
   }
- /* button:{ 
- /* background-color:  #ff9e36; */
- color:red
-} */
+
+.popup-container{
+    background-color:rgba(0,0,0,0.5);
+   display: flex;
+   justify-content: center ;
+   align-items: center;
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    bottom: 0;
+    opacity: 1;
+  }
+
+  .popup-container .hidden{
+   opacity: 0;
+  }
+
+  .meal-info{
+    position: relative;
+    background-color: #fff;
+    width:600px;
+    max-width: 100%;
+    padding:0 2rem;
+  }
+
+  .meal-info h1{
+    color:#000;
+    text-align: center;
+    margin-bottom:1rem;
+    font-size: 1.7rem;
+  }
+
+  .meal-info img{
+    max-width: 100%;
+  }
+
+  .meal-info .close-popup{
+  font-size: 1.3rem;
+    position: absolute;
+    top:1.5rem;
+    right:2rem;
+    opacity:0.6;
+    cursor: pointer;
+  }
+
+  .meal-info .close-popup:hover{
+    opacity: 1;
+  }
+

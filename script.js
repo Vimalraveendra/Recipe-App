@@ -2,6 +2,10 @@ let favList= document.getElementById('list');
 let mealContainer = document.getElementById('meal-container')
 let input = document.getElementById('input-text');
 let searchBtn = document.getElementById('search')
+let see = document.getElementById('see')
+const  mealPopup = document.getElementById('meal-popup')
+const popupCloseBtn = document.getElementById('close-popup');
+
 
  const  getMeals=async()=>{
     let  response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=Chicken`)
@@ -13,12 +17,14 @@ let searchBtn = document.getElementById('search')
  getMeals()
 
 const  getFavMeals=async(e)=>{
+   
     let queryString = e.target.alt ||e.target.innerText;
-    let  response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${queryString}`)
+    let  response = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?s=${queryString}`)
     let favMeals = await response.json();
     renderMeals(favMeals)
    
 }
+// getFavMeals("hello")
 
 
 const addMeals = (meals)=>{
@@ -38,6 +44,7 @@ const addMeals = (meals)=>{
             <div class='meal-footer'>
             <button id='see'>See</button>
             <button id='add'>Add </button>
+  
             </div>
     </div>
   `
@@ -45,6 +52,7 @@ const addMeals = (meals)=>{
 }
 
 const renderMeals = (mealList)=>{
+    console.log("fav",mealList)
 // clearing the  container before adding 
     mealContainer.innerHTML="";
   mealList.meals.forEach(meal => {
@@ -67,5 +75,11 @@ const searchMeals= async()=>{
     
 }
 
+const closePopup = ()=>{
+   mealPopup.classList.add('.hidden')
+}
+
+
 favList .addEventListener('click',getFavMeals)
 searchBtn.addEventListener('click',searchMeals)
+popupCloseBtn.addEventListener('click',closePopup)
